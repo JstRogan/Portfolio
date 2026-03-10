@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "role": "Senior Frontend Engineer",
+    "company": "Tech Innovators Inc.",
+    "period": "2023 - Present",
+    "description": "Leading the frontend team to build scalable web applications using React and Next.js."
+  },
+  {
+    "id": 2,
+    "role": "Full Stack Developer",
+    "company": "Creative Solutions LLC",
+    "period": "2020 - 2023",
+    "description": "Developed and maintained multiple client projects. Implemented RESTful APIs and responsive UIs."
+  }
+]

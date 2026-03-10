@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Murad Karimov",
+    "email": "murad@example.com",
+    "message": "Hi, I love your portfolio! Would you be interested in a freelance project?",
+    "date": "2026-03-09T10:00:00Z",
+    "read": false
+  },
+  {
+    "id": 2,
+    "name": "Acme Corp Recruiter",
+    "email": "recruiter@acmecorp.com",
+    "message": "We are looking for a Senior Frontend Engineer. Your profile looks like a great fit. Let's chat!",
+    "date": "2026-03-08T14:30:00Z",
+    "read": true
+  }
+]
