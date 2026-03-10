@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { Github, Linkedin, Moon, Sun } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
+import { LangToggle } from '@/components/lang-toggle';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
+  const { t } = useI18n();
 
   return (
     <motion.header 
@@ -20,12 +23,13 @@ export function Navbar() {
           MURAD.
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-          <Link href="/#about" className="hover:text-purple-600 dark:hover:text-white transition-colors">About</Link>
-          <Link href="/projects" className="hover:text-purple-600 dark:hover:text-white transition-colors">Work</Link>
-          <Link href="/#contact" className="hover:text-purple-600 dark:hover:text-white transition-colors">Contact</Link>
-          <Link href="/admin" className="text-purple-500 dark:text-emerald-500 hover:text-purple-600 dark:hover:text-emerald-400 transition-colors">Admin</Link>
+          <Link href="/#about" className="hover:text-purple-600 dark:hover:text-white transition-colors">{t('nav.about')}</Link>
+          <Link href="/projects" className="hover:text-purple-600 dark:hover:text-white transition-colors">{t('nav.work')}</Link>
+          <Link href="/#contact" className="hover:text-purple-600 dark:hover:text-white transition-colors">{t('nav.contact')}</Link>
+          <Link href="/admin" className="text-purple-500 dark:text-emerald-500 hover:text-purple-600 dark:hover:text-emerald-400 transition-colors">{t('nav.admin')}</Link>
         </div>
         <div className="flex items-center gap-4">
+          <LangToggle />
           <button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="text-zinc-400 hover:text-purple-600 dark:hover:text-white transition-colors"

@@ -1,6 +1,8 @@
 'use client';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
+import { HeroOrb } from '@/components/three/hero-orb';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Hero() {
   const containerRef = useRef(null);
@@ -13,11 +15,13 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const name = "MURAD KARIMOV"; 
-  const title = "CREATIVE DEVELOPER & DESIGNER";
+  const { t } = useI18n();
+  const title = t('hero.title');
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
       <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <HeroOrb />
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-purple-400/20 dark:bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none transition-colors duration-700" />
 

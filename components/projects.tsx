@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { RandomLetterReveal } from './random-letter-reveal';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Projects() {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useI18n();
 
   useEffect(() => {
     fetch('/api/projects')
@@ -54,9 +56,9 @@ export function Projects() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 dark:text-white mb-4 transition-colors duration-300">
-            <RandomLetterReveal text="Selected Work." duration={800} />
+            <RandomLetterReveal text={t('projects.title')} duration={800} />
           </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 max-w-xl text-lg transition-colors duration-300">A collection of projects that showcase my passion for building great products.</p>
+          <p className="text-zinc-500 dark:text-zinc-400 max-w-xl text-lg transition-colors duration-300">{t('projects.subtitle')}</p>
         </motion.div>
         
         <motion.div
@@ -67,7 +69,7 @@ export function Projects() {
           className="hidden md:block"
         >
           <Link href="/projects" className="group flex items-center gap-2 text-zinc-900 dark:text-white font-mono text-sm hover:text-purple-600 dark:hover:text-emerald-400 transition-colors duration-300">
-            View All Archive
+            {t('projects.viewAll')}
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </Link>
         </motion.div>
@@ -125,7 +127,7 @@ export function Projects() {
       
       <div className="mt-12 md:hidden flex justify-center">
         <Link href="/projects" className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-black px-6 py-3 rounded-full font-medium transition-colors duration-300">
-          View All Archive
+          {t('projects.viewAll')}
         </Link>
       </div>
     </section>
