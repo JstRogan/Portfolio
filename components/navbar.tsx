@@ -1,10 +1,10 @@
 'use client';
-import Link from 'next/link';
 import { Github, Linkedin, Moon, Sun } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
 import { LangToggle } from '@/components/lang-toggle';
 import { useI18n } from '@/hooks/use-i18n';
+import { Link } from '@/i18n/navigation';
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();

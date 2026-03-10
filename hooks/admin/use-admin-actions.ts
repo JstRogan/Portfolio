@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
-import { adminLogout } from '@/lib/api/admin';
+import { signOut } from 'next-auth/react';
 
 export function useAdminActions() {
   const router = useRouter();
@@ -11,10 +11,9 @@ export function useAdminActions() {
   const refresh = () => startTransition(() => router.refresh());
 
   const logout = async () => {
-    await adminLogout();
+    await signOut({ redirect: false });
     refresh();
   };
 
   return { isPending, refresh, logout };
 }
-

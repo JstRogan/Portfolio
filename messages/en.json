@@ -1,0 +1,26 @@
+{
+  "nav.about": "About",
+  "nav.work": "Work",
+  "nav.contact": "Contact",
+  "nav.admin": "Admin",
+  "hero.title": "CREATIVE DEVELOPER & DESIGNER",
+  "projects.title": "Selected Work.",
+  "projects.subtitle": "A collection of projects that showcase my passion for building great products.",
+  "projects.viewAll": "View All Archive",
+  "admin.login.title": "Admin Access",
+  "admin.login.subtitle": "Sign in to manage your portfolio content",
+  "admin.login.identifier": "Email or username",
+  "admin.login.password": "Password",
+  "admin.login.submit": "Sign In",
+  "admin.nav.dashboard": "Dashboard",
+  "admin.nav.projects": "Projects",
+  "admin.nav.experience": "Experience",
+  "admin.nav.messages": "Messages",
+  "admin.nav.viewSite": "View Site",
+  "admin.logout": "Logout",
+  "admin.stats.projectsTotal": "Total projects",
+  "admin.stats.projectsFeatured": "Featured projects",
+  "admin.stats.experienceTotal": "Experience entries",
+  "admin.stats.messagesUnread": "Unread messages"
+}
+

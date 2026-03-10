@@ -1,6 +1,10 @@
 import { apiJson } from '@/lib/api/http';
 import type { Project } from '@/lib/types';
 
+export async function listProjects() {
+  return apiJson<Project[]>(`/api/projects`);
+}
+
 export async function createProject(input: Omit<Project, 'id'>) {
   return apiJson<Project>(`/api/projects`, {
     method: 'POST',
@@ -20,4 +24,3 @@ export async function updateProject(id: number, patch: Partial<Project>) {
 export async function deleteProject(id: number) {
   return apiJson<{ success: true }>(`/api/projects/${id}`, { method: 'DELETE' });
 }
-

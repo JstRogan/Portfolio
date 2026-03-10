@@ -1,6 +1,10 @@
 import { apiJson } from '@/lib/api/http';
 import type { Experience } from '@/lib/types';
 
+export async function listExperience() {
+  return apiJson<Experience[]>(`/api/experience`);
+}
+
 export async function createExperience(input: Omit<Experience, 'id'>) {
   return apiJson<Experience>(`/api/experience`, {
     method: 'POST',
@@ -20,4 +24,3 @@ export async function updateExperience(id: number, patch: Partial<Experience>) {
 export async function deleteExperience(id: number) {
   return apiJson<{ success: true }>(`/api/experience/${id}`, { method: 'DELETE' });
 }
-

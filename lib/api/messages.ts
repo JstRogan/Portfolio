@@ -1,6 +1,10 @@
 import { apiJson } from '@/lib/api/http';
 import type { Message } from '@/lib/types';
 
+export async function listMessages() {
+  return apiJson<Message[]>(`/api/messages`);
+}
+
 export async function toggleMessageRead(id: number, read: boolean) {
   return apiJson<{ success: true }>(`/api/messages/${id}`, {
     method: 'PATCH',
@@ -12,4 +16,3 @@ export async function toggleMessageRead(id: number, read: boolean) {
 export async function deleteMessage(id: number) {
   return apiJson<{ success: true }>(`/api/messages/${id}`, { method: 'DELETE' });
 }
-

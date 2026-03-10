@@ -1,20 +1,25 @@
 'use client';
 
-import { useContext } from 'react';
-import { useRouter } from 'next/navigation';
-import { I18nContext } from '@/components/i18n-provider';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 export function useI18n() {
+  const locale = useLocale() as 'en' | 'ru';
+  const tr = useTranslations();
   const router = useRouter();
-  const { locale, messages } = useContext(I18nContext);
+  const pathname = usePathname();
 
-  const t = (key: string) => messages[key] || key;
+  const t = (key: string) => {
+    try {
+      return tr(key as never);
+    } catch {
+      return key;
+    }
+  };
 
   const setLocale = (next: 'en' | 'ru') => {
-    document.cookie = `lang=${next}; path=/; max-age=31536000; samesite=lax`;
-    router.refresh();
+    router.replace(pathname, { locale: next });
   };
 
   return { locale, t, setLocale };
 }
-

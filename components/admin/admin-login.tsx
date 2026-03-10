@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Lock, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { adminLogin } from '@/lib/api/admin';
+import { signIn } from 'next-auth/react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export function AdminLogin() {
   const router = useRouter();
@@ -17,7 +19,8 @@ export function AdminLogin() {
     setPending(true);
     setError(null);
     try {
-      await adminLogin(password);
+      const res = await signIn('credentials', { password, redirect: false });
+      if (!res || res.error) throw new Error(res?.error || 'Auth failed');
       router.refresh();
     } catch {
       setError('Wrong password');
@@ -40,20 +43,24 @@ export function AdminLogin() {
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 transition-colors duration-300">Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white outline-none focus:ring-2 focus:ring-purple-500/40 dark:focus:ring-emerald-500/40 transition-colors duration-300" />
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="focus:ring-2 focus:ring-purple-500/40 dark:focus:ring-emerald-500/40"
+            />
           </div>
           {error ? (
             <div className="flex items-center gap-2 text-sm text-red-600 dark:text-red-400">
               <AlertCircle className="w-4 h-4" /> {error}
             </div>
           ) : null}
-          <button type="submit" disabled={pending} className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black font-medium hover:opacity-90 transition-opacity disabled:opacity-60">
+          <Button type="submit" disabled={pending} className="w-full" size="lg" variant="primary" shape="soft">
             {pending ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
             Continue
-          </button>
+          </Button>
         </form>
       </motion.div>
     </div>
   );
 }
-

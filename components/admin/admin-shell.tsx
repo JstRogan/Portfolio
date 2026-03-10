@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { FolderKanban, Mail, Briefcase, ArrowLeft, Sun, Moon, Loader2, LogOut } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import type { ComponentType, ReactNode } from 'react';
 import type { AdminTab } from '@/store/admin-ui';
 import { useAdminActions } from '@/hooks/admin/use-admin-actions';
+import { Link } from '@/i18n/navigation';
 
 const tabs: { id: AdminTab; label: string; icon: ComponentType<{ className?: string }> }[] = [
   { id: 'projects', label: 'Projects', icon: FolderKanban },

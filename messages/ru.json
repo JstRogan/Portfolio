@@ -1,0 +1,26 @@
+{
+  "nav.about": "Обо мне",
+  "nav.work": "Проекты",
+  "nav.contact": "Контакты",
+  "nav.admin": "Админ",
+  "hero.title": "КРЕАТИВНЫЙ РАЗРАБОТЧИК И ДИЗАЙНЕР",
+  "projects.title": "Избранные работы.",
+  "projects.subtitle": "Подборка проектов, которые показывают мой подход к созданию продукта.",
+  "projects.viewAll": "Смотреть архив",
+  "admin.login.title": "Доступ администратора",
+  "admin.login.subtitle": "Войдите, чтобы управлять контентом портфолио",
+  "admin.login.identifier": "Email или логин",
+  "admin.login.password": "Пароль",
+  "admin.login.submit": "Войти",
+  "admin.nav.dashboard": "Дашборд",
+  "admin.nav.projects": "Проекты",
+  "admin.nav.experience": "Опыт",
+  "admin.nav.messages": "Сообщения",
+  "admin.nav.viewSite": "На сайт",
+  "admin.logout": "Выйти",
+  "admin.stats.projectsTotal": "Всего проектов",
+  "admin.stats.projectsFeatured": "Featured проектов",
+  "admin.stats.experienceTotal": "Записей опыта",
+  "admin.stats.messagesUnread": "Непрочитанных сообщений"
+}
+

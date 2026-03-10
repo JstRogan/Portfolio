@@ -1,4 +1,4 @@
-import { createStore } from '@/store/create-store';
+import { create } from 'zustand';
 
 export type AdminTab = 'projects' | 'messages' | 'experience';
 
@@ -10,14 +10,14 @@ type AdminUiState = {
   editingExperienceId: number | null;
 };
 
-const store = createStore<AdminUiState>({
+export const useAdminUi = create<AdminUiState>(() => ({
   tab: 'projects',
   projectEditorOpen: false,
   experienceEditorOpen: false,
   editingProjectId: null,
   editingExperienceId: null,
-});
+}));
 
-export const useAdminUi = store.useStore;
-export const setAdminUi = store.setState;
-
+export function setAdminUi(updater: (prev: AdminUiState) => AdminUiState) {
+  useAdminUi.setState(updater);
+}
